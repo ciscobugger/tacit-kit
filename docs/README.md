@@ -1,6 +1,6 @@
 # Docs figures
 
-The figures of the Tacit Design pages (tacitos.co/design) are QML files in `figures/`, one per page. Each draws its
+The figures of the Tacit Design pages (design.tacitos.co) are QML files in `figures/`, one per page. Each draws its
 pictures with the kit itself and saves them as PNG.
 
 ## Render a page

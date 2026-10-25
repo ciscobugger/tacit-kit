@@ -3,7 +3,7 @@
 The parts Tacit's own apps are made of, for anyone making an app for Tacit: lists, the rail, page headers, search,
 menus, buttons, panels, fields, switches, sliders, tabs, players and the states between them. One QML module,
 `Tacit.Kit`, for [Quickshell](https://quickshell.org) apps. The guide to using it well is at
-[tacitos.co/design](https://tacitos.co/design); a whole app made only of these parts is
+[design.tacitos.co](https://design.tacitos.co); a whole app made only of these parts is
 the [Music example](https://github.com/ciscobugger/tacit-music-example), a starting point to build on.
 
 ## Use it
@@ -66,5 +66,5 @@ are in `qml/Tacit/Kit/fonts/` and the module loads them, so nothing has to be in
   licence; changes to the kit itself stay open.
 - Its fonts (`qml/Tacit/Kit/fonts/`): SIL Open Font License 1.1 (the `OFL-*.txt` beside them, and `FONTLOG.md`),
   with "Tacit" as a Reserved Font Name.
-- The documentation at tacitos.co/design, with its figures and the pictures in `docs/assets/`: CC BY 4.0.
+- The documentation at design.tacitos.co, with its figures and the pictures in `docs/assets/`: CC BY 4.0.
 - The name: see `TRADEMARKS.md`.
