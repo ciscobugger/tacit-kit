@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""lint.py <qml files or folders> [--symbols tacit_symbols.js]: what an app on Tacit Design must not do.
+"""lint.py <qml files or folders> [--symbols tacit_symbols.js]: what an app on Tacit Design must not do. Symbol names
+are checked against the kit's own qml/Tacit/Kit/symbols.js unless --symbols names another list.
 
   colour    a raw colour (#hex, Qt.rgba, a colour name) instead of a Tacit role
   size      a literal font.pixelSize instead of Tacit.size
@@ -20,7 +21,8 @@ RULES = {
     "size": re.compile(r"font\.pixelSize:\s*\d"),
     "radius": re.compile(r"\bradius:\s*(\d+(\.\d+)?)\b"),
     "opacity": re.compile(r"\b(StyledText|Text|T)\s*\{[^}\n]*\bopacity:"),
-    "symbol": re.compile(r'(MaterialSymbol|G|TSymbol)\s*\{[^}\n]*\btext:\s*"([a-z0-9_]+)"'),
+    # a symbol by name: Symbol { text: "..." } (and the shell's MaterialSymbol, G, TSymbol), or a part's glyph: "..."
+    "symbol": re.compile(r'\b(?:MaterialSymbol|Symbol|G|TSymbol)\s*\{[^}\n]*\btext:\s*"([a-z0-9_-]+)"|\bglyph:\s*"([a-z0-9_-]+)"'),
 }
 ALLOWED_RADIUS = {"0", "1", "1.5", "2"}
 
@@ -45,7 +47,7 @@ def lint(files, symbols):
                         continue
                     if rule == "radius" and (m.group(1) in ALLOWED_RADIUS):
                         continue
-                    if rule == "symbol" and (not symbols or m.group(2) in symbols):
+                    if rule == "symbol" and (not symbols or (m.group(1) or m.group(2)) in symbols):
                         continue
                     found[rule] += 1
                     print(f"{f}:{n}: {rule}: {line.strip()[:110]}")
@@ -65,6 +67,9 @@ if __name__ == "__main__":
     for a in args:
         p = pathlib.Path(a)
         files += sorted(p.rglob("*.qml")) if p.is_dir() else [p]
-    found = lint(files, sym or set())
+    if sym is None:   # by default, the symbols the kit itself draws
+        kit_symbols = pathlib.Path(__file__).resolve().parent.parent / "qml/Tacit/Kit/symbols.js"
+        sym = load_symbols(kit_symbols) if kit_symbols.exists() else set()
+    found = lint(files, sym)
     print("\n" + ", ".join(f"{k} {v}" for k, v in found.items()), f"in {len(files)} files")
     sys.exit(1 if any(found.values()) else 0)

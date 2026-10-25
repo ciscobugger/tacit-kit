@@ -51,6 +51,8 @@ name: `import Tacit.Kit as K`, then `K.Slider`.
   text inks by contrast, sizes, spaces, corners, motion). `tools/generate.py` turns it into `Live.qml`, `Defaults.qml`,
   CSS for the web and the tables in the docs.
 - `catalogue/`: every part in its states on two palettes (`tools/catalogue.sh` renders them).
+- `docs/agents.md`: the rules and commands for a coding agent building a Tacit app. Copy it into your app's repo as
+  `AGENTS.md`, or point the agent at https://design.tacitos.co/agents.md.
 - `tools/grab.sh`: runs an app with no desktop and saves what its window draws on each palette in `tools/palettes/`.
 - `tools/lint.py`: checks an app for raw colours, literal sizes and corners, faded text and symbols Tacit does not
   draw.
