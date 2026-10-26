@@ -25,6 +25,12 @@ QtObject {
     readonly property color overlayLit: "#3e3835"
     readonly property color overlayMeta: "#ddd7d4"
     readonly property color overlayRisk: "#ffccc5"
+    readonly property color paper: "#ede8e7"
+    readonly property color paperInk: "#1e1b1a"
+    readonly property color paperInkSec: "#4b4746"
+    readonly property color paperRule: "#ccc7c6"
+    readonly property color paperMark: "#5a4d48"
+    readonly property color paperWash: "#eae0dc"
     readonly property real windowSeeThrough: 0.15
     readonly property QtObject wash: QtObject {
         readonly property real hover: 0.05

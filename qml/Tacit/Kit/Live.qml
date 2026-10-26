@@ -93,6 +93,12 @@ Scope {
     readonly property color overlayLit: live.mix(live.inkMain, live.overlay, 0.1)
     readonly property color overlayMeta: live.inkFor(75, live.overlayLit, live.pc("on_background"))
     readonly property color overlayRisk: live.inkFor(75, live.overlayLit, live.pc("error"))
+    readonly property color paper: live.inkMain
+    readonly property color paperInk: live.ground
+    readonly property color paperInkSec: live.inkFor(78, live.paper, live.ground)
+    readonly property color paperRule: live.mix(live.ground, live.paper, 0.16)
+    readonly property color paperMark: live.inkFor(75, live.paper, live.pc("primary"))
+    readonly property color paperWash: live.mix(live.pc("primary"), live.paper, 0.2)
     readonly property real windowSeeThrough: (live.transparency.enable === false ? 0
         : live.transparency.automatic !== false ? 0.15 : Number(live.transparency.backgroundTransparency ?? 0.15)) * live.seeThroughScale
     readonly property QtObject wash: QtObject {

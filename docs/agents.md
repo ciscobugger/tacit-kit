@@ -60,7 +60,9 @@ Read it before using the part. The design guide has a page per part with the sam
 1. **Values come from `Kit.tokens`.** Colours (`inkMain`, `inkSec`, `inkMeta`, `inkFaint`, `accent`, `risk`,
    `windowGround`, ...), type sizes (`size.row`, `size.body`, `size.section`, ...), spaces (`space.s`, `space.m`,
    `space.l`, ...), corners (`radius.row`, `radius.slab`, `radius.window`, ...). Never write a colour, a pixel size or a
-   corner by hand: the palette follows the wallpaper and the values change with it.
+   corner by hand: the palette follows the wallpaper and the values change with it. A document's page (a docs
+   app, a preview) is white paper with its own inks: `paper`, `paperInk`, `paperInkSec`, `paperRule`, and for the app's
+   marks on it `paperMark` and `paperWash`.
 2. **Text is quieter by ink, never by opacity.** Use `TacitText` with `ink: "sec"`, `"meta"` or `"faint"`. Don't set
    `opacity` on text.
 3. **The accent is a mark, never text.** It shows the current place, the way forward, the focus ring, what is playing.

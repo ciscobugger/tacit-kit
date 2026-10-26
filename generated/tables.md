@@ -24,6 +24,12 @@
 | `overlayLit` | `inkMain` at 10 % over `overlay` | a menu line under the cursor or the pointer: wash.current of the main ink over the overlay. The overlay inks are solved on it |
 | `overlayMeta` | the palette's `on_background`, moved until Lc 75 on `overlayLit` | meta text on the overlay (a menu's headings and details): Lc 75 on overlayLit, so on every line |
 | `overlayRisk` | the palette's `error`, moved until Lc 75 on `overlayLit` | the risk ink on the overlay (a menu's risk line): Lc 75 on overlayLit |
+| `paper` | `inkMain` | a document's page (white paper, as it prints): the main ink, so it carries the wallpaper's hue |
+| `paperInk` | `ground` | a document's own text on the page |
+| `paperInkSec` | `ground`, moved until Lc 78 on `paper` | quieter document text on the page: bylines, captions, table heads. Solved to Lc 78 on the paper, above the small-text floor of 75 |
+| `paperRule` | `ground` at 16 % over `paper` | rules and table lines on the page |
+| `paperMark` | the palette's `primary`, moved until Lc 75 on `paper` | the app's own marks on the page (caret, link, comment underline): the accent, moved until Lc 75 on the paper |
+| `paperWash` | the palette's `primary` at 20 % over `paper` | a highlight on the page (selection, a comment's text, what an action changed): the accent at 20 % over the paper |
 
 ### wash
 
